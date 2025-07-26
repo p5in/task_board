@@ -2,8 +2,7 @@ import React from "react";
 // Badlav yahan hai: react-beautiful-dnd se @hello-pangea/dnd mein badla gaya
 import { Draggable } from "@hello-pangea/dnd";
 
-const TaskCard = ({ task, onDelete, index }) => {
-  // Status ke hisab se class name set karein
+const TaskCard = ({ task, onDelete, index, onGenerateSubtasks }) => {
   const getCardStyle = (status) => {
     switch (status) {
       case "To Do":
@@ -31,6 +30,12 @@ const TaskCard = ({ task, onDelete, index }) => {
           </button>
           <h4>{task.title}</h4>
           <p>{task.description}</p>
+          <button
+            className="ai-button"
+            onClick={() => onGenerateSubtasks(task)}
+          >
+            ✨ AI Sub-tasks
+          </button>
         </div>
       )}
     </Draggable>

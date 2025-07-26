@@ -20,6 +20,8 @@
 # Database files
 *.db
 *.db-journal
+*.db-shm  # <-- Yeh line add ki gayi hai
+*.db-wal  # <-- Yeh line add ki gayi hai
 
 # Secrets and environment-specific files
 appsettings.Development.json

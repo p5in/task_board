@@ -3,7 +3,7 @@ import React from "react";
 import { Droppable } from "@hello-pangea/dnd";
 import TaskCard from "./TaskCard";
 
-const Column = ({ title, tasks, onDeleteTask }) => {
+const Column = ({ title, tasks, onDeleteTask, onGenerateSubtasks }) => {
   return (
     <div className="column">
       <h2>{title}</h2>
@@ -20,6 +20,7 @@ const Column = ({ title, tasks, onDeleteTask }) => {
                 task={task}
                 index={index}
                 onDelete={onDeleteTask}
+                onGenerateSubtasks={onGenerateSubtasks}
               />
             ))}
             {provided.placeholder}
