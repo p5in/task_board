@@ -6,7 +6,7 @@ import AddTaskForm from "./AddTaskForm";
 
 const Board = () => {
   const [tasks, setTasks] = useState([]);
-  const apiUrl = "https://localhost:5155/api/tasks";
+  const apiUrl = "https://task-board-oo2r.onrender.com/api/tasks";
 
   useEffect(() => {
     axios

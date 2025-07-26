@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // React app ka address
+        policy.WithOrigins("http://localhost:3000", "https://taskboardp5pin.netlify.app") // React app ka address
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
