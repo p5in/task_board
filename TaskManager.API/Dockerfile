@@ -1,5 +1,6 @@
 # Stage 1: Build the application
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Use the .NET 9 SDK to match your project's target framework
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
@@ -11,7 +12,8 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Stage 2: Create the final runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# Use the .NET 9 runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
