@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManager.API.Data;
 using TaskManager.API.Models;
+using TaskManager.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -88,6 +89,15 @@ app.MapDelete("/api/tasks/{id}", async (DataContext context, int id) =>
     await context.SaveChangesAsync();
     return Results.NoContent();
 });
+
+
+
+// Automatically apply migrations on startup
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+    dbContext.Database.Migrate();
+}
 
 
 app.Run();
